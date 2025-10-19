@@ -106,3 +106,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// Добавляем этот код в iframe
+document.addEventListener('DOMContentLoaded', function() {
+  // Обработчик сообщений
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'enableEasyEditMode') {
+      document.body.classList.add('easy-mode-edit');
+      console.log('✅ Easy edit mode enabled');
+    }
+    
+    if (event.data && event.data.type === 'disableEasyEditMode') {
+      document.body.classList.remove('easy-mode-edit');
+      console.log('❌ Easy edit mode disabled');
+    }
+  });
+});
