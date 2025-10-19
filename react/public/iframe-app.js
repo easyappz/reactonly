@@ -80,6 +80,7 @@ window.addEventListener('unhandledrejection', function (event) {
 });
 
 window.handleRoutes = function(pages) {
+  console.log('window.handleRoutes', {pages});
   const pagesData = {
     type: 'handlePages',
     timestamp: new Date().toISOString(),
