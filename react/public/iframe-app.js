@@ -88,3 +88,21 @@ window.handleRoutes = function(pages) {
   };
   window.parent.postMessage(pagesData, '*');
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+  const elements = document.querySelectorAll('[data-easytag]');
+  
+  elements.forEach(element => {
+    element.addEventListener('click', function(event) {
+      event.stopPropagation();
+      const easyTagData = this.getAttribute('data-easytag');
+      console.log({easyTagData});
+      // Отправляем данные наверх
+      window.parent.postMessage({
+        type: 'easyTagClick',
+        timestamp: new Date().toISOString(),
+        data: easyTagData
+      }, '*');
+    });
+  });
+});
