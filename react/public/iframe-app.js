@@ -78,3 +78,12 @@ window.addEventListener('unhandledrejection', function (event) {
 
   event.preventDefault(); // Предотвращаем стандартный вывод
 });
+
+window.handleRoutes = function(pages) {
+  const pagesData = {
+    type: 'handlePages',
+    timestamp: new Date().toISOString(),
+    pages: pages,
+  };
+  window.parent.postMessage(pagesData, '*');
+};
