@@ -91,7 +91,7 @@ window.handleRoutes = function(pages) {
 
 document.addEventListener('DOMContentLoaded', function() {
   const elements = document.querySelectorAll('[data-easytag]');
-  
+
   elements.forEach(element => {
     element.addEventListener('click', function(event) {
       event.stopPropagation();
@@ -103,8 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
         timestamp: new Date().toISOString(),
         data: easyTagData
       }, '*');
+
+      event.preventDefault();
     });
   });
+
+  return true;
 });
 
 // Добавляем этот код в iframe
